@@ -93,19 +93,19 @@
         <h1>Tela de Postagem</h1>
       
         <div class="post-form">
-          <form action="{{ route('store') }}" method="POST">
+          <form action="{{ route('group.store') }}" method="POST">
             @csrf
             <input type="text" name="name" placeholder="Digite sua postagem">
             <button type="submit" class="post-button">Postar</button>
           </form>
         </div>
-      
+
         <ul class="post-list">
               @foreach($posts as $post)
                 <li class="post-item">
                   {{ $post->name }}
                   <div class="actions">
-                    <form action="{{ route('destroy', $post) }}" method="POST" >
+                    <form action="{{ route('group.destroy', $post) }}" method="POST" >
                       @csrf
                       @method('DELETE')
                       <button type="submit">Deletar</button>
