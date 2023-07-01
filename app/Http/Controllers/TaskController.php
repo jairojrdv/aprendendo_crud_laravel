@@ -3,40 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Closure;
-use Illuminate\Contracts\View\View;
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index():View
     {
         return view('taskManager', [
             'tasks' => Task::query()
-                        ->get(),]);
+                ->get()]);
     }
-    public function store()
+
+    public function store(Request $request)
     {
         Task::query()->create([
-            'title'=>request()->title,
-            'description'=>request()->description
+            'title'=>$request->title,
+            'description'=>$request->description
         ]);
         return to_route('manager.index');
     }
+
     public function update(Task $task)
     {
         $task->update([
-            'title'=>request()->title,
-            'description'=>request()->description
+            'title' => request()->title,
+            'description' => request()->description,
         ]);
-       return to_route('manager.index');
+
+        return to_route('manager.index');
     }
+
     public function destroy(Task $task)
     {
         $task->delete();
 
         return to_route('manager.index');
     }
-
 }

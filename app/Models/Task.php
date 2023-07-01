@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
-    protected $table = 'tasks' ;
+
+    protected $table = 'tasks';
+
     protected $fillable = ['title', 'description', 'status'];
 
     protected $casts = [
-        'status' => 'boolean'
+        'status' => 'boolean',
     ];
 }

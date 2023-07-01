@@ -111,7 +111,7 @@
                       <button type="submit">Deletar</button>
                     </form>
                     <hr>
-                    <form action="{{ route('update', $post) }}" method="POST" >
+                    <form action="{{ route('group.update', $post) }}" method="POST" >
                       @csrf
                       @method('PUT')
                       <input type="text" name="name" value="{{ $post->name }}">

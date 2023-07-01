@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $table = 'posts' ;
+
+    protected $table = 'posts';
+
     protected $fillable = ['name'];
 
     /**
      * The attributes that should be cast.
-     *
       */
     // protected $casts = [
     //     'id' => 'int',
